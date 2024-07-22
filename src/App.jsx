@@ -1,12 +1,21 @@
+import { useUser } from '@clerk/clerk-react';
 import './App.css';
-import { Button } from './components/ui/button';
+import { Navigate, Outlet } from 'react-router-dom';
+import Spinner from './components/custom/Spinner';
 
 function App() {
-  return (
-    <>
-      <Button className="p-2">Subscribe to newsletter</Button>
-    </>
-  );
+  const { user, isLoaded, isSignedIn } = useUser();
+
+  if (!isLoaded)
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <Spinner />
+      </div>
+    );
+
+  if (!isSignedIn) return <Navigate to={'/auth/log-in'} />;
+
+  return <Outlet />;
 }
 
 export default App;
