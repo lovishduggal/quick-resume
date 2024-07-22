@@ -1,21 +1,30 @@
 import { createBrowserRouter } from 'react-router-dom';
 import LogIn from './pages/auth/LogIn';
-import App from './App';
+import Root from './layouts/Root';
+import NonAuth from './layouts/NonAuth';
+import SharedLayout from './layouts/SharedLayout';
 
 const routes = [
   {
     path: '/',
-    element: <App />,
+    element: <Root />,
     children: [
       {
         path: '',
-        element: <h1>Home</h1>,
+        element: <SharedLayout />,
+        children: [
+          {
+            path: '',
+            element: <div>HomePage</div>,
+          },
+        ],
+      },
+      {
+        path: '/auth',
+        element: <NonAuth />,
+        children: [{ path: 'log-in', element: <LogIn /> }],
       },
     ],
-  },
-  {
-    path: '/auth/log-in',
-    element: <LogIn />,
   },
 ];
 const router = createBrowserRouter(routes);
