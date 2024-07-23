@@ -8,10 +8,13 @@ const Header = () => {
   const { user, isSignedIn } = useContext(UserContext);
 
   return (
-    <div className="py-4 px-6 flex items-center justify-between">
-      <img src="/logo-desktop.svg" width={200} height={200} alt="logo" />
+    <div className="max-w-screen-lg lg:m-auto py-4 px-6 flex items-center justify-between">
+      <h1 className="text-3xl font-semibold">
+        <span className="text-primary font-bold">Q</span>
+        <span>uick Resume</span>
+      </h1>
       {user && isSignedIn ? (
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-5">
           <Link to={'/dashboard'}>
             {' '}
             <Button variant={'outline'}>Dashboard</Button>
