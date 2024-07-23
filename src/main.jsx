@@ -10,14 +10,12 @@ import { neobrutalism } from '@clerk/themes';
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <ClerkProvider
-      appearance={{
-        baseTheme: [neobrutalism],
-      }}
-      publishableKey={PUBLISHABLE_KEY}
-    >
-      <RouterProvider router={router}></RouterProvider>
-    </ClerkProvider>
-  </React.StrictMode>
+  <ClerkProvider
+    appearance={{
+      baseTheme: [neobrutalism],
+    }}
+    publishableKey={PUBLISHABLE_KEY}
+  >
+    <RouterProvider router={router}></RouterProvider>
+  </ClerkProvider>
 );

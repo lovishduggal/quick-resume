@@ -12,19 +12,22 @@ import { Input } from '../../../components/ui/input';
 import { v4 as uuidv4 } from 'uuid';
 import { createResume } from '../../../http/api';
 import UserContext from '../../../context/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 const AddResume = () => {
   const { user } = useContext(UserContext);
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
+  // try to extract the handle submit logic
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
     const uuid = uuidv4();
     const resumeData = {
-      dataData: {
+      data: {
         title,
         resumeId: uuid,
         userEmail: user?.primaryEmailAddress?.emailAddress,
@@ -33,7 +36,11 @@ const AddResume = () => {
     };
     console.log(resumeData);
     try {
-      await createResume(resumeData);
+      const {
+        data: { data },
+      } = await createResume(resumeData);
+      console.log(data.documentId, uuid);
+      navigate(`/dashboard/resume/${uuid}/edit`);
     } catch (error) {
       console.log(error);
     } finally {
@@ -43,12 +50,15 @@ const AddResume = () => {
 
   return (
     <>
-      <div
-        className="w-36 h-40
+      <div>
+        <div
+          className="w-36 h-40
          px-14 py-24 border-dashed border-2 flex  items-center justify-center bg-secondary rounded-lg hover:scale-105 transition-all hover:shadow-md  cursor-pointer"
-        onClick={() => setOpen(true)}
-      >
-        <PlusSquareIcon />
+          onClick={() => setOpen(true)}
+        >
+          <PlusSquareIcon />
+        </div>
+        <h2 className="text-center mt-1">New</h2>
       </div>
       {/* Use alert dialog instead of dialog */}
       <Dialog open={open}>
