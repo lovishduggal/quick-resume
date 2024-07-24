@@ -39,7 +39,7 @@ const AddResume = () => {
       const {
         data: { data },
       } = await createResume(resumeData);
-      console.log(data.documentId, uuid);
+      console.log(data, data.documentId, uuid);
       navigate(`/dashboard/resume/${uuid}/edit`);
     } catch (error) {
       console.log(error);

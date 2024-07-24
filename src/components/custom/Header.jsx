@@ -8,7 +8,7 @@ const Header = () => {
   const { user, isSignedIn } = useContext(UserContext);
 
   return (
-    <div className="max-w-screen-lg lg:m-auto py-4 px-6 mb-8 flex items-center justify-between">
+    <div className="max-w-screen-lg lg:mx-auto py-4 px-6 mb-8 flex items-center justify-between">
       <h1 className="text-3xl font-semibold">
         <span className="text-primary font-bold">Q</span>
         <span>uick Resume</span>
