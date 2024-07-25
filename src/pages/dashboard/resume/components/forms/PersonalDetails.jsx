@@ -7,6 +7,9 @@ import { updateResume } from '../../../../../http/api';
 import { Loader2 } from 'lucide-react';
 import { toast } from 'sonner';
 
+//TODO:
+//? On refresh page, we have to persist the entered data in preview form
+
 const PersonalDetails = ({ setEnableNxtBtn }) => {
   const { resumeData, setResumeData } = useContext(ResumeDataContext);
   const { resumeId } = useParams();
@@ -18,10 +21,7 @@ const PersonalDetails = ({ setEnableNxtBtn }) => {
 
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    setResumeData({
-      ...resumeData,
-      [name]: value,
-    });
+    setResumeData((prev) => ({ ...prev, [name]: value }));
     setEnableNxtBtn(false);
   };
 
@@ -36,7 +36,7 @@ const PersonalDetails = ({ setEnableNxtBtn }) => {
 
       await updateResume(resumeId, updatedResumeData);
       setEnableNxtBtn(true);
-      toast('Updated successfully!!');
+      toast('Details Updated successfully!!');
     } catch (error) {
       console.error('Error updating resume:', error);
       toast('Error updating resume. Please try again.', { type: 'error' });

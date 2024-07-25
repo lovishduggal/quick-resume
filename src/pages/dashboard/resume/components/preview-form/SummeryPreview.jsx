@@ -1,7 +1,7 @@
 const SummeryPreview = ({ resumeData }) => {
   return (
     <div>
-      <p>{resumeData.summery} </p>
+      <p>{resumeData.summary} </p>
     </div>
   );
 };

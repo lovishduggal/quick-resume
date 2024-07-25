@@ -2,9 +2,10 @@ import { ArrowLeft, ArrowRight, LayoutGridIcon } from 'lucide-react';
 import { Button } from '../../../../components/ui/button';
 import PersonalDetails from './forms/PersonalDetails';
 import { useState } from 'react';
+import Summary from './forms/Summary';
 
 const InputForm = () => {
-  const [activeFormIdx, setActiveFormIdx] = useState(0);
+  const [activeFormIdx, setActiveFormIdx] = useState(1);
   const [enableNxtBtn, setEnableNxtBtn] = useState(false);
 
   return (
@@ -41,6 +42,7 @@ const InputForm = () => {
         <PersonalDetails setEnableNxtBtn={setEnableNxtBtn} />
       )}
       {/* Summary */}
+      {activeFormIdx === 1 && <Summary setEnableNxtBtn={setEnableNxtBtn} />}
       {/* Experience */}
       {/* Education */}
       {/* Skills */}
