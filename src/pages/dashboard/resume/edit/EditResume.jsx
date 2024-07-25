@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import InputForm from '../components/InputForm';
-import PreviewForm from '../components/preview-form/PreviewForm';
+import PreviewForm from '../components/PreviewForm';
 import ResumeDataContext from '../../../../context/ResumeDataContext';
 import { formDummyData } from '../../../../constants';
 

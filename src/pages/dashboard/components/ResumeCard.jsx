@@ -11,7 +11,7 @@ export const ResumeCardSkeleton = () => {
 
 const ResumeCard = ({ resume }) => {
   return (
-    <Link to={`/dashboard/resume/${resume?.resumeId}/edit`}>
+    <Link to={`/dashboard/resume/${resume?.documentId}/edit`}>
       <div
         className="w-36 h-40
          px-14 py-24 border border-1 flex  items-center justify-center bg-secondary rounded-lg hover:scale-105 transition-all hover:shadow-md shadow-primary cursor-pointer"

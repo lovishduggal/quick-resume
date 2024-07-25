@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import ResumeDataContext from '../../../../../context/ResumeDataContext';
-import PersonalDetailPreview from './PersonalDetailPreview';
-import SummeryPreview from './SummeryPreview';
-import ExperiencePreview from './ExperiencePreview';
-import EducationPreview from './EducationPreview';
-import SkillsPreview from './SkillsPreview';
+import ResumeDataContext from '../../../../context/ResumeDataContext';
+import PersonalDetailPreview from './preview-form/PersonalDetailPreview';
+import SummeryPreview from './preview-form/SummeryPreview';
+import ExperiencePreview from './preview-form/ExperiencePreview';
+import EducationPreview from './preview-form/EducationPreview';
+import SkillsPreview from './preview-form/SkillsPreview';
 
 const PreviewForm = () => {
   const { resumeData, setResumeData } = useContext(ResumeDataContext);
