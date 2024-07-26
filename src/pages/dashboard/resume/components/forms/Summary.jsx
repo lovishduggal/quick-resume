@@ -9,7 +9,6 @@ import { useParams } from 'react-router-dom';
 import { aiChatSession } from '../../../../../services/generativeAi';
 import { getPrompt } from '../../../../../lib/utils';
 
-
 const Summary = ({ setEnableNxtBtn }) => {
   const { resumeData, setResumeData } = useContext(ResumeDataContext);
   const { resumeId } = useParams();

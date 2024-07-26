@@ -3,9 +3,10 @@ import { Button } from '../../../../components/ui/button';
 import PersonalDetails from './forms/PersonalDetails';
 import { useState } from 'react';
 import Summary from './forms/Summary';
+import Experience from './forms/Experience';
 
 const InputForm = () => {
-  const [activeFormIdx, setActiveFormIdx] = useState(1);
+  const [activeFormIdx, setActiveFormIdx] = useState(2);
   const [enableNxtBtn, setEnableNxtBtn] = useState(false);
 
   return (
@@ -44,6 +45,7 @@ const InputForm = () => {
       {/* Summary */}
       {activeFormIdx === 1 && <Summary setEnableNxtBtn={setEnableNxtBtn} />}
       {/* Experience */}
+      {activeFormIdx === 2 && <Experience setEnableNxtBtn={setEnableNxtBtn} />}
       {/* Education */}
       {/* Skills */}
     </div>
